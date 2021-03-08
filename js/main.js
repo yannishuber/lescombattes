@@ -284,7 +284,7 @@
 
 			this.DOM.quickLinks.forEach(item => {
 				item.addEventListener('click', e => {
-					e.preventDefault();
+					// e.preventDefault();
 					this.toggleMenu();
 					var oldPos = this.currentPos;
 					this.currentPos = parseInt(e.target.id);
@@ -297,9 +297,7 @@
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
 					//alert('test');
-					console.log(e);
 					e.preventDefault();
-					console.log('test')
 					//this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px';
 
 					anime({
