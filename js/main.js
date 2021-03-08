@@ -295,7 +295,16 @@
 
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
+					//alert('test');
+					console.log(e);
 					e.preventDefault();
+					console.log('test')
+					this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px';
+
+					document.addEventListener('touchmove', e => {
+						this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px'
+					})
+
 					anime({
 						targets: this.DOM.imagePreview,
 						opacity: '1',
@@ -325,6 +334,7 @@
 							this.DOM.imagePreview.style.display = "none";
 						}
 					}).finished;
+					document.removeEventListener('touchmove')
 				}
 
 			})
