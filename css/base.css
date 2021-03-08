@@ -377,7 +377,7 @@ button:focus {
 	align-items: center;
 	justify-content: center;
 	z-index: 300;
-	pointer-events: none;
+	/* pointer-events: none; */
 	/* height: 100vh; */
 	background: var(--color-bg-facts);
 }

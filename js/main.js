@@ -260,6 +260,7 @@
 			// Close preview
 			this.DOM.previewCloseCtrl.addEventListener('click', () => this.closePreview());
 
+
 			let ticking = false;
 			document.addEventListener("wheel", (e) => {
 
@@ -294,7 +295,6 @@
 
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
-					alert('test');
 					e.preventDefault();
 					anime({
 						targets: this.DOM.imagePreview,
