@@ -198,6 +198,7 @@
 			this.DOM.navigation.prevCtrl = this.DOM.navigation.querySelector('button.sections__nav-item--prev');
 			this.DOM.navigation.nextCtrl = this.DOM.navigation.querySelector('button.sections__nav-item--next');
 			this.DOM.entries = Array.from(this.DOM.el.querySelectorAll('.section'), entry => new Entry(entry));
+			this.DOM.quickLinks = this.DOM.el.querySelectorAll('.quick-link');
 			this.DOM.planImages = this.DOM.el.querySelectorAll('.section__plan');
 			this.DOM.galleryImages = this.DOM.el.querySelectorAll('a.section__gallery-item');
 			this.DOM.imagePreview = document.querySelector('.image-view');
@@ -280,6 +281,17 @@
 
 			}, true);
 
+			this.DOM.quickLinks.forEach(item => {
+				item.addEventListener('click', e => {
+					e.preventDefault();
+					this.toggleMenu();
+					var oldPos = this.currentPos;
+					this.currentPos = parseInt(e.target.id);
+					const newEntry = this.DOM.entries[this.currentPos];
+					this.update(newEntry, oldPos);
+				})
+			})
+
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
 					e.preventDefault();
@@ -308,7 +320,7 @@
 							this.animationRunning = true;
 						},
 						complete: () => {
-							this.animationRunning = false;
+							//this.animationRunning = false;
 							this.DOM.imagePreview.style.display = "none";
 						}
 					}).finished;
@@ -341,6 +353,7 @@
 			this.isEntriesAnimating = true;
 			// Store direction
 			this.direction = direction;
+			var oldPos = this.currentPos;
 			// Update currentPos
 			const newPos = this.currentPos = this.direction === 'next' ?
 				this.currentPos < this.entriesTotal - 1 ? this.currentPos + 1 : 0 :
@@ -348,13 +361,13 @@
 
 			const newEntry = this.DOM.entries[newPos];
 
-			this.update(newEntry);
+			this.update(newEntry, oldPos);
 		}
-		update(newEntry) {
+		update(newEntry, oldPos) {
 			const updateFn = () => {
 				// hide the current entry and show the next/previous one.
 				// when both updatePageNumber, hide and show are finished:
-				Promise.all([this.currentEntry.hide(this.direction), newEntry.show(this.direction), this.updatePageNumber()]).then(() => {
+				Promise.all([this.currentEntry.hide(this.direction), newEntry.show(this.direction), this.updatePageNumber(oldPos)]).then(() => {
 					this.currentEntry.DOM.el.classList.remove('section--current');
 					newEntry.DOM.el.classList.add('section--current');
 					this.currentEntry = newEntry;
@@ -369,19 +382,21 @@
 				updateFn();
 			}
 		}
-		updatePageNumber() {
+		updatePageNumber(oldPos) {
 
-			var oldPos;
+			// var oldPos;
 
-			if (this.direction === 'next') {
-				if (this.currentPos == 0) oldPos = 3;
-				else oldPos = this.currentPos - 1;
-			} else {
-				if (this.currentPos == 3) oldPos = 0;
-				else oldPos = this.currentPos + 1;
-			}
+			// if (this.direction === 'next') {
+			// 	if (this.currentPos == 0) oldPos = 3;
+			// 	else oldPos = this.currentPos - 1;
+			// } else {
+			// 	if (this.currentPos == 3) oldPos = 0;
+			// 	else oldPos = this.currentPos + 1;
+			// }
 
-			console.log(oldPos)
+			// console.log(oldPos)
+
+			if(oldPos < 0 || oldPos > 3) return;
 
 			anime({
 				targets: this.DOM.planImages[oldPos],
