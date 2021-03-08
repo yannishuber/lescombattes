@@ -159,6 +159,7 @@ button:focus {
 .sections__header {
 	padding: 2rem 3rem 0 2rem;
 	display: flex;
+	margin-bottom: 2em;
 }
 
 .title {
@@ -562,6 +563,7 @@ button:focus {
 	}
 	.sections__header {
 		grid-area: header;
+		margin-bottom: 0;
 	}
 	.sections__index {
 		font-weight: bold;
