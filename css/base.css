@@ -16,10 +16,7 @@
 
 .image-view > #placeholder {
 	max-width: 95%;
-	max-height: 80%;
-	height: 100%;
 	width: 100%;
-	background-image: url("../img/a.jpg");
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -478,6 +475,7 @@ button:focus {
 
 	.image-view > #placeholder {
 		max-width: 60%;
+		max-height: 80%;
 	}
 
 	.sections__pre {

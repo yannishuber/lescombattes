@@ -309,7 +309,7 @@
 						easing: 'easeInOutQuad',
 						begin: () => {
 							this.animationRunning = true;
-							this.DOM.imagePreview.childNodes[0].style.backgroundImage = "url('" + e.target.parentElement.href + "')";
+							this.DOM.imagePreview.childNodes[0].src = e.target.parentElement.href;
 							this.DOM.imagePreview.style.display = "flex";
 						}
 					}).finished;
