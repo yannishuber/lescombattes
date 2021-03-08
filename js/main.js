@@ -200,7 +200,7 @@
 			this.DOM.entries = Array.from(this.DOM.el.querySelectorAll('.section'), entry => new Entry(entry));
 			this.DOM.quickLinks = this.DOM.el.querySelectorAll('.quick-link');
 			this.DOM.planImages = this.DOM.el.querySelectorAll('.section__plan');
-			this.DOM.galleryImages = this.DOM.el.querySelectorAll('a.section__gallery-item');
+			this.DOM.galleryImages = this.DOM.el.querySelectorAll('.section__gallery-item img');
 			this.DOM.imagePreview = document.querySelector('.image-view');
 			this.DOM.imagePreviewClose = document.querySelector('.image-view__close');
 			//this.DOM.plan = this.DOM.el.querySelector('.section__plan');
