@@ -297,20 +297,22 @@
 				})
 			})
 
-			this.DOM.imagePreviewClose.addEventListener('click', e => {
-				anime({
-					targets: this.DOM.imagePreview,
-					opacity: '0',
-					duration: 300,
-					easing: 'easeInOutQuad',
-					begin: () => {
-						this.animationRunning = true;
-					},
-					complete: () => {
-						this.animationRunning = false;
-						this.DOM.imagePreview.style.display = "none";
-					}
-				}).finished;
+			this.DOM.imagePreview.addEventListener('click', e => {
+				if (e.target.id != "placeholder") {
+					anime({
+						targets: this.DOM.imagePreview,
+						opacity: '0',
+						duration: 300,
+						easing: 'easeInOutQuad',
+						begin: () => {
+							this.animationRunning = true;
+						},
+						complete: () => {
+							this.animationRunning = false;
+							this.DOM.imagePreview.style.display = "none";
+						}
+					}).finished;
+				}
 
 			})
 
@@ -463,6 +465,7 @@
 		preview(gallery) {
 			if (this.isFactsAnimating || !gallery) return;
 			this.isFactsAnimating = true;
+			this.animationRunning = true;
 
 			this.gallery = gallery;
 			this.DOM.el.classList.add('sections--factsopen');
@@ -497,6 +500,7 @@
 		closePreview() {
 			if (this.isFactsAnimating) return;
 			this.isFactsAnimating = true;
+			this.animationRunning = false;
 
 			Promise.all([
 				this.toggleNavigationCtrls({

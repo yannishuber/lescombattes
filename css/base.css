@@ -729,3 +729,25 @@ button:focus {
 		padding: 0.5rem;
 	}
 }
+
+@media screen and (min-width: 2400px) {
+	.section__description-inner {
+		font-size: 1.2em;
+	}
+
+	.facts__toggle-text {
+		line-height: normal;
+	}
+
+	.facts__toggle-inner {
+		font-size: .9rem;
+	}
+
+	.section__facts {
+		font-size: 1.2em;
+	}
+
+	.section__more {
+		font-size: 1.2em;
+	}
+}
