@@ -293,9 +293,6 @@
 				})
 			})
 
-			var touchMoveListener = () => {
-				this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px';
-			}
 
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
@@ -303,9 +300,7 @@
 					console.log(e);
 					e.preventDefault();
 					console.log('test')
-					this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px';
-
-					document.addEventListener('touchmove', touchMoveListener)
+					//this.DOM.imagePreview.style.top = document.documentElement.scrollTop + 'px';
 
 					anime({
 						targets: this.DOM.imagePreview,
@@ -336,7 +331,6 @@
 							this.DOM.imagePreview.style.display = "none";
 						}
 					}).finished;
-					document.removeEventListener('touchmove', touchMoveListener)
 				}
 
 			})
