@@ -15,7 +15,7 @@
 }
 
 .image-view > #placeholder {
-	max-width: 60%;
+	max-width: 95%;
 	max-height: 80%;
 	height: 100%;
 	width: 100%;
@@ -376,7 +376,7 @@ button:focus {
 	grid-template-rows: 2rem 1fr 1fr 1fr;
 	align-items: center;
 	justify-content: center;
-	z-index: 300;
+	z-index: -1;
 	/* pointer-events: none; */
 	/* height: 100vh; */
 	background: var(--color-bg-facts);
@@ -443,6 +443,7 @@ button:focus {
 	display: flex;
 	cursor: pointer;
 	font-weight: 300;
+	z-index: 500 !important;
 }
 
 .section__more-linktext {
@@ -473,6 +474,10 @@ button:focus {
 								"sections-index expander"
 								"... expander"
 								"sections-nav expander";
+	}
+
+	.image-view > #placeholder {
+		max-width: 60%;
 	}
 
 	.sections__pre {
@@ -516,7 +521,7 @@ button:focus {
 		flex-direction: column;
 		justify-content: flex-end;
 		pointer-events: none;
-		z-index: 200;
+		z-index: 500;
 	}
 	.facts__toggle {
 		font-weight: bold;

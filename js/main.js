@@ -485,6 +485,7 @@
 			});
 		}
 		preview(gallery) {
+			this.DOM.el.querySelector('.section__gallery').style.zIndex = 120;
 			if (this.isFactsAnimating || !gallery) return;
 			this.isFactsAnimating = true;
 			this.animationRunning = true;
@@ -521,6 +522,7 @@
 		}
 		closePreview() {
 			if (this.isFactsAnimating) return;
+			this.DOM.el.querySelector('.section__gallery').style.zIndex = -1;
 			this.isFactsAnimating = true;
 			this.animationRunning = false;
 
