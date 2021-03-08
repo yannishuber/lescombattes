@@ -294,6 +294,7 @@
 
 			this.DOM.galleryImages.forEach(item => {
 				item.addEventListener('click', e => {
+					alert('test');
 					e.preventDefault();
 					anime({
 						targets: this.DOM.imagePreview,
