@@ -206,11 +206,24 @@
 			//this.DOM.plan = this.DOM.el.querySelector('.section__plan');
 			this.entriesTotal = this.DOM.entries.length;
 			this.currentPos = 0;
+			this.initPos = 0;
+
+			if (window.location.href.indexOf("#a01") > -1) {
+				this.initPos = 1;
+			} else if (window.location.href.indexOf("#a02") > -1){
+				this.initPos = 2;
+			}else if (window.location.href.indexOf("#a03") > -1) {
+				this.initPos = 3
+			}
 			this.animationRunning = false;
 
 			this.layout();
 			// Init/Bind events.
 			this.initEvents();
+			if(this.initPos != 0){
+				this.update(this.DOM.entries[this.initPos], this.currentPos);
+				this.currentPos = this.initPos;
+			}
 		}
 		layout() {
 			this.currentEntry = this.DOM.entries[this.currentPos];
