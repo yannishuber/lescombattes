@@ -214,6 +214,8 @@
 				this.initPos = 2;
 			}else if (window.location.href.indexOf("#a03") > -1) {
 				this.initPos = 3
+			}else if (window.location.href.indexOf("#v") > -1) {
+				this.initPos = 4
 			}
 			this.animationRunning = false;
 
@@ -414,7 +416,7 @@
 
 			// console.log(oldPos)
 
-			if(oldPos < 0 || oldPos > 3) return;
+			if(oldPos < 0 || oldPos > 4) return;
 
 			anime({
 				targets: this.DOM.planImages[oldPos],
@@ -496,7 +498,7 @@
 			});
 		}
 		preview(gallery) {
-			this.DOM.el.querySelector('.section__gallery').style.zIndex = 120;
+			this.DOM.el.querySelectorAll('.section__gallery')[this.currentPos - 1].style.zIndex = 200;
 			if (this.isFactsAnimating || !gallery) return;
 			this.isFactsAnimating = true;
 			this.animationRunning = true;
@@ -533,7 +535,7 @@
 		}
 		closePreview() {
 			if (this.isFactsAnimating) return;
-			this.DOM.el.querySelector('.section__gallery').style.zIndex = -1;
+			this.DOM.el.querySelectorAll('.section__gallery')[this.currentPos-1].style.zIndex = -1;
 			this.isFactsAnimating = true;
 			this.animationRunning = false;
 
