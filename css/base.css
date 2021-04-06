@@ -462,6 +462,8 @@ button:focus {
 	display: none;
 }
 
+
+
 @media screen and (min-width: 55em) and (min-height: 40em) {
 
 	
@@ -499,6 +501,15 @@ button:focus {
 		position: absolute;
 		top: 0;
 		right: 0;
+		background-color: #a6a161;
+		border-radius: 50%;
+		width: 3em;
+		height: 3em;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0px 0px 3px #aaa;
 	}
 	.sections--factsopen .codrops-links {
 		opacity: 0;
@@ -725,6 +736,12 @@ button:focus {
 
 	.section__title {
 		font-size: 3em
+	}
+}
+
+@media screen and (max-height: 1000px) {
+	.section__facts-item {
+		margin: 0 0 1rem 0;
 	}
 }
 
